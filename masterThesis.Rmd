@@ -1,0 +1,56 @@
+---
+output: 
+  pdf_document:
+    includes:
+      in_header: sub/header.tex
+      before_body: sub/titlepage.tex
+      after_body: sub/footer.tex
+toc: true
+toc_depth: 2
+fontsize: 12pt
+geometry: left=2.5cm, right=2.5cm, top=2.5cm, bottom=2.5cm
+documentclass: article
+bibliography: sub/bibliographie.bib
+---
+
+\newpage
+
+Titre de premier niveau
+=======================
+
+Titre de second niveau
+----------------------
+
+### Titre de niveau trois
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+\vspace{-15pt}
+* puce 1
+* puce 2
+
+1. test 01
+2. test 02
+
+Titre de second niveau bis
+--------------------------
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r}
+summary(cars)
+```
+
+Test of citation [@Shalek2013] from bibliography [@Shalek2013; @Huh2010]
+
+You can also embed plots, for example:
+
+```{r, echo=FALSE}
+plot(cars)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+\newpage
+
+# References
