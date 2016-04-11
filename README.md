@@ -8,3 +8,12 @@ There is just one remaining issue, you will have to remove the first page, using
 For instance `pdftk in.pdf cat 2-end output out1.pdf` should do it.
 
 The table of content or the pagination is not impacted!
+
+How to do
+=========
+
+- Just `git clone git@github.com:shamansim/templateMarkdownLaTeXMasterThesis.git`
+- Then open RStudio and open `masterThesis.Rmd`
+- Push `Knit PDF` button
+- Enjoy!
+- Don't forget to personalise your `sub/` files
