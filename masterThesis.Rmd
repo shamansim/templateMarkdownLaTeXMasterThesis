@@ -1,6 +1,7 @@
 ---
 output: 
   pdf_document:
+    fig_caption: true
     includes:
       in_header: sub/header.tex
       before_body: sub/titlepage.tex
@@ -12,6 +13,58 @@ geometry: left=2.5cm, right=2.5cm, top=2.5cm, bottom=2.5cm
 documentclass: article
 bibliography: sub/bibliographie.bib
 ---
+
+```{r figRef-tabRef, include=FALSE}
+figRef <- local({
+    tag <- numeric()
+    created <- logical()
+    used <- logical()
+    function(label, caption){
+        i <- which(names(tag) == label)
+        if (length(i) == 0){
+            i <- length(tag) + 1
+            tag <<- c(tag, i)
+            names(tag)[length(tag)] <<- label
+            used <<- c(used, FALSE)
+            names(used)[length(used)] <<- label
+            created <<- c(created, FALSE)
+            names(created)[length(created)] <<- label
+        }
+        if (!missing(caption)){
+            created[label] <<- TRUE
+            paste0(caption)
+        } else{
+            used[label] <<- TRUE
+            paste0(tag[label])
+        }
+    }
+})
+
+tabRef <- local({
+    tag <- numeric()
+    created <- logical()
+    used <- logical()
+    function(label, caption){
+        i <- which(names(tag) == label)
+        if (length(i) == 0){
+            i <- length(tag) + 1
+            tag <<- c(tag, i)
+            names(tag)[length(tag)] <<- label
+            used <<- c(used, FALSE)
+            names(used)[length(used)] <<- label
+            created <<- c(created, FALSE)
+            names(created)[length(created)] <<- label
+        }
+        if (!missing(caption)){
+            created[label] <<- TRUE
+            paste0(caption)
+        } else{
+            used[label] <<- TRUE
+            paste0(tag[label])
+        }
+    }
+})
+```
 
 \newpage
 
@@ -29,6 +82,7 @@ This is an R Markdown document. Markdown is a simple formatting syntax for autho
 * puce 1
 * puce 2
 
+\vspace{-25pt}
 1. test 01
 2. test 02
 
@@ -37,7 +91,7 @@ Titre de second niveau bis
 
 When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
 
-```{r}
+```{r nameOfTheFirstChunk}
 summary(cars)
 ```
 
@@ -45,11 +99,11 @@ Test of citation [@Shalek2013] from bibliography [@Shalek2013; @Huh2010]
 
 You can also embed plots, for example:
 
-```{r, echo=FALSE}
+```{r nameOfTheSecondChunk, echo=FALSE, , fig.cap=figRef(label = "carsPlot", caption = "My fancy caption for this fancy plot.")}
 plot(cars)
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+Note that the `echo = FALSE` parameter was added to the code chunk in figure `r figRef("carsPlot")` to prevent printing of the R code that generated the plot.
 
 \newpage
 
