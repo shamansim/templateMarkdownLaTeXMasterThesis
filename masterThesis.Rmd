@@ -66,6 +66,13 @@ tabRef <- local({
 })
 ```
 
+```{r forPander, include=FALSE}
+list.of.packages <- c("pander")
+new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
+if(length(new.packages)) install.packages(new.packages)
+library("pander")
+```
+
 \newpage
 
 Titre de premier niveau
@@ -104,6 +111,12 @@ plot(cars)
 ```
 
 Note that the `echo = FALSE` parameter was added to the code chunk in figure `r figRef("carsPlot")` to prevent printing of the R code that generated the plot.
+
+And also here is a beautiful way to display a table (table `r tabRef("summaryCars2")` below):
+
+```{r nameOfTheThirdChunk, echo=FALSE}
+pander(summary(cars), caption = tabRef(label = "summaryCars2", caption = "My fancy caption for this fancy table using pander."))
+```
 
 \newpage
 
