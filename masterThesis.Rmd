@@ -85,11 +85,11 @@ Titre de second niveau
 
 This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
 
-\vspace{-15pt}
+\vspace{-10pt}
 * puce 1
 * puce 2
 
-\vspace{-25pt}
+\vspace{-15pt}
 1. test 01
 2. test 02
 
