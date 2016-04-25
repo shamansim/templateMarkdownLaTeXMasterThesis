@@ -30,3 +30,4 @@ Bibliography
 - https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf
 - https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
 - http://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html
+- https://packagecontrol.io/packages/MarkdownTOC
